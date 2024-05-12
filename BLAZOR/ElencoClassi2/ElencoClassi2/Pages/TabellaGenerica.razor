@@ -1,0 +1,78 @@
+﻿@* Componente Razor per una tabella qualunque in sola lettura. *@
+@page "/TabellaGenerica"
+
+@typeparam T
+
+@CreaCorpoTabella()
+
+@code {
+    [Parameter]
+    public string[] NomiColonne { get; set; }
+
+    [Parameter]
+    public List<T> Ennuple { get; set; }
+
+    [Parameter]
+    public string[] NomiProprietà { get; set; }
+
+    /// <summary>
+    /// RenderFragment è un delegato void con parametro RenderTreeBuilder builder.
+    /// Tale parametro ha una serie di metodi per creare tag, loro attributi
+    /// contenuti.
+    /// Il presente metodo restituisce quindi un delegato che crea il corpo della tabella.
+    /// Non è permeabile a vulnerabilità XSS.
+    /// </summary>
+    /// <returns>Il suddetto delegato.</returns>
+    private RenderFragment CreaCorpoTabella()
+    {
+        // Errore di prova per testare <ErrorBoundary> in MainLayout.razor.
+        //throw new InvalidOperationException("Errore di prova!");
+
+        return builder =>
+        {
+            int indiceSequenza = 0;
+
+            builder.OpenElement(indiceSequenza++, "table");
+            builder.AddAttribute(indiceSequenza++, "class", "table");
+
+            builder.OpenElement(indiceSequenza++, "thead");
+
+            builder.OpenElement(indiceSequenza++, "tr");
+
+            foreach (string nc in NomiColonne)
+            {
+                builder.OpenElement(indiceSequenza++, "th");
+                builder.AddContent(indiceSequenza++, nc);
+                builder.CloseElement();
+            }
+
+            builder.CloseElement(); // tr
+
+            builder.CloseElement(); // thead
+
+            builder.OpenElement(10, "tbody");
+
+            foreach (var e in Ennuple)
+            {
+                builder.OpenElement(indiceSequenza++, "tr");
+
+                foreach (var nomeProp in NomiProprietà)
+                {
+                    var prop = typeof(T).GetProperty(nomeProp);
+
+                    builder.OpenElement(indiceSequenza++, "td");
+                    builder.AddContent(indiceSequenza++, prop.GetValue(e).ToString());
+                    builder.CloseElement();
+                }
+
+                builder.CloseElement(); // tr
+
+            }
+
+            builder.CloseElement(); // tbody
+
+            builder.CloseElement(); // table
+
+        };
+    }
+}

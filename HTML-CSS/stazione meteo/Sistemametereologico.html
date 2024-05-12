@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Sito stazione metereologica ITT Pascal">
+        <meta name="keywords" content="Stazione, Meteo, Scuola, ITT, Pascal">
+        <meta name="author" content="Manzi Giuliano">
+        <meta name="copyright" content="ittpascal.it">
+        <meta name="robots" content="noindex">
+        <!--<meta http-equiv="refresh" content="60">-->
+        <meta http-equiv="Expires" content="0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <title>Stazione meteo</title>
+        <link rel="icon" href="immagini/icone/logo.ico" type="image/icon type">
+    </head>
+    <body>
+        <div id="container">
+            <!-- Navbar-->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="immagini/logo.png" width="75"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Sistemametereologico.html">Sistema metereologico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rilevazioni.html">Rilevazioni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chisiamo.html">Chi siamo</a>
+                    </li>
+                    <!--Dropdown principale-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Componenti
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="componentielettronici/componentielettronici.html">Componenti elettronici</a></li>
+                            <li><a class="dropdown-item" href="componentielettronici/raspberry.html">Raspberry</a></li>
+                            <li><a class="dropdown-item" href="componentielettronici/ups.html">Ups</a></li>
+                            <li><a class="dropdown-item" href="componentielettronici/Batteriaups.html">Batteria Ups</a></li>
+                            <li><a class="dropdown-item" href="componentielettronici/Stabilizzatori.html">Stabilizzatori</a></li>
+                            <li><a class="dropdown-item" href="componentielettronici/stabilizzatoreditensione.html">Stabilizzatore di tensione</a></li>
+                            <li><a class="dropdown-item" href="encoder/encoder.html">Encoder</a></li>
+                            <li><a class="dropdown-item" href="encoder/encoderassoluto.html">Encoder assoluto</a></li>
+                            <li><a class="dropdown-item" href="encoder/encoderincrementale.html">Encoder incrementale</a></li>
+                            <li><a class="dropdown-item" href="componentivari/webcam.html">Webcam</a></li>
+                            <li><a class="dropdown-item" href="componentivari/pluviometro.html">Pluviometro</a></li>
+                            <li><a class="dropdown-item" href="componentivari/protezionesensori.html">Protezione sensori</a></li>
+                            <li><a class="dropdown-item" href="componentivari/banderuola.html">Banderuola</a></li>
+                            <li><a class="dropdown-item" href="componentivari/anemometro.html">Anemometro</a></li>
+                        </ul>
+                    </li>
+                </div>
+                </div>
+            </nav>
+
+            <!--Main-->
+            <br>
+            <div class="content">
+                <main>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="text-center">Sistema metereologico</h1>
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Cliccare sui componenti per vederne i dettagli o usare il menù qui sopra</h3>
+                                            <p class="card-text"><img src="immagini/StazioneMeteo1.png" class="img-fluid" alt="Workplace" usemap="#mappa" height="900" width="700">
+                                                <map name="mappa">
+                                                    <area target="_blank" alt="webcam" title="webcam" href="componentivari/webcam.html" coords="396,711,13" shape="circle">
+                                                    <area target="_blank" alt="scatola con elettronica" title="scatola con elettronica" href="componentielettronici/componentielettronici.html" coords="301,629,335,624,449,627,453,803,334,806,305,802" shape="poly">
+                                                    <area target="_blank" alt="pluviometro" title="pluviometro" href="componentivari/pluviometro.html" coords="113,509,111,574,208,574,202,507" shape="poly">
+                                                    <area target="_blank" alt="protezione sensori con igrometro e termometro" title="protezione sensori con igrometro e termometro" href="componentivari/protezionesensori.html" coords="346,418,338,514,383,518,391,423" shape="poly">
+                                                    <area target="_blank" alt="banderuola" title="banderuola" href="componentivari/banderuola.html" coords="653,263,654,330,629,333,552,302,550,265" shape="poly">
+                                                    <area target="_blank" alt="encoder" title="encoder" href="encoder/encoder.html" coords="504,173,516,167,542,169,540,228,514,222,505,228" shape="poly">
+                                                    <area target="_blank" alt="anemometro" title="anemometro" href="componentivari/anemometro.html" coords="457,78,602,80,604,170,457,165" shape="poly">
+                                                </map>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h3>Link correlati</h3>
+                                        <ul>
+                                            <a href="https://www.ispascalcomandini.it/" class="link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">Sito ITT Blaise Pascal</a>
+                                        </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <!--Footer-->
+                                    <footer>
+                                        <div class="card text-center">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Realizzato da</h5>
+                                            <p class="card-text">giuliano.manzi.stud@ispascalcomandini.it</p>
+                                            <a href="index.html" class="btn btn-primary">Torna alla Home</a>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                    <!--Footer-->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>

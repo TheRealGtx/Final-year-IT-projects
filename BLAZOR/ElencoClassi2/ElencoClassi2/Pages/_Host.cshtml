@@ -1,0 +1,51 @@
+﻿@*Simple site that shows a bunch of classes from a school*@
+@page "/"
+@using Microsoft.AspNetCore.Components.Web
+@namespace ElencoClassi2.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="~/" />
+    <link href="css/site.css" rel="stylesheet" />
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+    <!-- cookiealert styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+</head>
+<body>
+    <component type="typeof(App)" render-mode="ServerPrerendered" />
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <!-- START Bootstrap-Cookie-Alert -->
+    <div class="alert text-center cookiealert" role="alert">
+        <b>Ti piacciono i cookies?</b> &#x1F36A; Usiamo i cookies
+        su questo sito. <a href="https://cookiesandyou.com/" target="_blank">Scopri di più</a>
+        <button type="button" class="btn btn-primary btn-sm acceptcookies">
+            Accetto
+        </button>
+    </div>
+    <!-- END Bootstrap-Cookie-Alert -->
+
+    <!-- Include cookiealert script -->
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!--A website that describes some css properties ad Bootstrap-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esempi CSS</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <b><p>Il css definisce una serie di regole che consentono di modificare l'aspetto grafico degli elementi <br>
+            in una pagina HTML. Le regole hanno la sintassi: <br>
+            Selettore { <br>
+                proprietà: valore1;<br>
+            }<br>
+            Ad esempio ho un tag &lt;div&gt; che voglio di sfondo nero. Il CSS sarà:<br>
+            div {<br>
+                background-color: "black";<br>
+            }
+            </p></b>
+        <div id="primodiv">div</div>
+        <b><p>Per scrivere il css si hanno tre scelte:
+            <ol>
+                <li>L'attributo style interno a un tag: &lt;div style="background-color: red"&gt;</li>
+                <li>I tag &lt;style&gt; solitamente nella sezione &lt;head&gt; del sito: &lt;style&gt;<i>codice css</i>/&gt;</li>
+                <li>Fare riferimanto a un file CSS esterno usando &lt;link rel="stylesheet" href="file.css"&gt; nella sezione &lt;head&gt; del sito</li>
+            </ol>
+        </p></b>
+        <b><p>Per fare riferimento agli elementi HTML si hanno vari modi detti selettori:
+            <ul>
+                <li>Fare riferimento a tutti i tag di quel tipo:<br>
+                    div {<br>
+                        background-color: "black";<br>
+                    }
+                </li>
+                <li>
+                    Fare riferimento al nome della classe:<br>
+                    Ho un tag &lt;div class="quadrato"&gt; il css sarà<br>
+                    .quadrato {<br>
+                        background-color: "green"<br>
+                    }
+                </li>
+                <li>
+                    Fare riferimento all'id dell'elemento:<br>
+                    Ho un tag &lt;div id="altroquadrato"&gt; il css sarà<br>
+                    #altroquadrato {<br>
+                        background-color: "purple"<br>
+                    }
+                </li>
+            </ul>
+        </p></b>
+        <div class="quadrati">
+            <div><span>div</span></div>
+            <div class="quadrato"><span>quadrato</span></div>
+            <div id="altroquadrato"><span>altro quadrato</span></div>
+        </div>
+        <b><p>Vedete che abbiamo 3 quadrati ognuno con colori diversi nonostante i tag &lt;div&gt; dovrebbero essere tutti neri.<br>
+        Questo perchè a ognuno abbiamo dato un colore diverso usando l'id o il nome della classe
+        </p></b>
+        <b><p>Alcuni selettori si attivano solo in corrispondenza di determinati eventi o valori assunti dai tag:<br>
+            <ul>
+                <li>Ho un tag &lt;a&gt; con un link e voglio che sia verde se il sito di riferimento è google e rosso se è youtube, scriverò<br>
+                a[href$=google.com] {<br>
+                    background-color: "green";<br>
+                }<br>
+                a[href$=youtube.com] {<br>
+                    background-color: "red";<br>
+                }<br>
+                Avremo:
+                <a href="https://www.google.com/" target="_blank">Indovina</a><a href="https://www.youtube.com/" target="_blank">Indovina</a>
+                <p>$= specifica come deve finire la stringa</p>
+                </li>
+                <li>Ho un bottone e voglio che il suo sfondo cambi quando ci passo sopra con il mouse. Scriverò:<br>
+                    #bottone:hover {<br>
+                        background-color: "aquamarine";<br>
+                    }<br>
+                    <button id="bottone">Passa qui con il mouse</button>
+                </li>
+                <li>Ho una checkbox e voglio che diventi rossa quando seleziono l'opzione sbagliata. Scriverò:<br>
+                input[type=checkbox]:checked {<br>
+                    accent-color: "red";<br>
+                }<br>
+                <input type="checkbox">Non sono bravissimo a presentare
+                <br>
+            </ul>
+        </p></b>
+        <p><b>Per applicare le stesse regole a più selettori basterà scrivere i selettori separati da una virgola nel CSS. Se ad esempio ho:<br>
+            <br>
+            &lt;div id="quadratorosso"&gt;rosso&lt;/div&gt;<br>
+            &lt;button id="bottonerosso"&gt;Bottone&lt;/button&gt;<br>
+            <br>
+            E li voglio entrambi rossi, nel CSS scriverò:<br>
+            <br>
+            #quadratorosso, #bottonerosso {<br>
+                background-color: red;<br>
+            }<br>
+        </b></p>
+        </li>
+        <div id="quadratorosso"></div>
+        <br>
+        <button id="bottonerosso">Bottone</button> 
+        <p><b>Vediamo come selezionare un selettore contenuto in un altro, come ad esempio un testo in un div:<br>
+            <br>
+            &lt;div id="quadratonero"&gt;&lt;span id="testointerno"&gt;Bianco&lt;/span&gt;&lt;/div&gt;<br>
+            <br>
+            Nel CSS sarà sufficiente scrivere:<br>
+            <br>
+            #quadratonero > #testointerno {<br>
+                color: green;<br>
+            }<br>
+         </b></p>
+         <div id="quadratonero"><span id="testointerno">Verde</span></div>
+         <br>
+        <p><b>Da notare come non ho specificato il colore del div in quanto a inizio spiegazione abbiamo già definito la regola che impone a tutti i div di essere a sfondo nero.</b></p>
+        <a href="bootstrap.html" target="_blank"><h1>Bootstrap</h1></a>
+    </body>
+</html>

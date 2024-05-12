@@ -1,0 +1,31 @@
+﻿@*
+    Con asterisco
+    @page "/CollegamentiContestuali/{*Parametri}"
+    passerebbe tutti gli argomenti (separati da /) a Parametri.
+*@
+@page "/CollegamentiContestuali/{Parametri}"
+
+<aside class="col-md-3 p-3 bg-secondary">
+    <h3>Link utili</h3>
+    <ul class="list-unstyled">
+        @* <li><a href="https://www.example.com" class="text-dark">[1] ...</a></li>
+        <li><a href="https://www.example.com" class="text-dark">[2] ...</a></li> *@
+
+        @for (int k = 0; k < Links.Length; k++)
+        {
+            <li><a href="@Links[k]" class="text-dark">[@(k + 1)] ...</a></li>
+        }
+    </ul>
+</aside>
+
+@code {
+    [Parameter]
+    public string Parametri { get; set; }
+
+    private string[] Links { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Links = Parametri?.Split(';') ?? Array.Empty<string>();
+    }
+}

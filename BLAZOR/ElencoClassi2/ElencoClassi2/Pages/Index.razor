@@ -1,0 +1,23 @@
+﻿@page "/"
+@inherits Classi.Classi
+
+<div class="container">
+    <h1>Classi dell'istituto</h1>
+
+    @* TODO: realizzare un componente anche per questo div! (fatto, va solo inserito nel mainlayout come gli altri componenti
+       e poi si puà rimuovere il codice qua sotto.
+    *@
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputRicerca">Cerca:</label>
+                <input type="text" class="form-control" id="inputRicerca" @bind="testoRicerca" />
+            </div>
+        </div>
+    </div>
+
+    <TabellaGenerica
+    Ennuple="ClassiSelezionate"
+    NomiColonne='new string[] { "Id", "Nome", "Anno Scolastico" }'
+    NomiProprietà='new string[] { "Id", "Nome", "AnnoScolastico"}' />
+</div>

@@ -1,0 +1,26 @@
+﻿@page "/MenuSito"
+
+@*
+    Vantaggi di <NavLink> rispetto ad <a>:
+    - Integrato con il routing per le pagine SPA (Single Page Application)
+    - Applica automaticamente uno specifico stile al link quando la pagina
+    visualizzata è quella del link (activeClass).
+    Il link "/" però è considerato attivo anche per ogni altro link, per risolvere serve
+    Match=NavLinkMatch.All.
+    - Supporta il pre-fetching.
+    - Altre funzionalità (cercare su MSDN).
+*@
+<nav class="col-md-3 bg-secondary text-white p-3">
+    <ul class="list-unstyled">
+        <li>
+            <NavLink class="text-white" href="/" activeClass="active" Match=NavLinkMatch.All>
+                <span class="bi bi-house"></span> Home
+            </NavLink>
+        </li>
+        <li>
+            <NavLink class="text-white" href="/Contatti" activeClass="active">
+                <span class="bi bi-person-circle"></span> Contatti
+            </NavLink>
+        </li>
+    </ul>
+</nav>
