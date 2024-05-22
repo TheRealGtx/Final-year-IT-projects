@@ -1,0 +1,54 @@
+﻿@page "/dati"
+
+<div class="container">
+    <h1 class="text-center">Dati disponibli</h1>
+    <h3>Seleziona un elemento tra quelli presenti per vederne i dati disponibili</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <NavLink class="nav-link text-center" href="/Rilevazioni" ActiveClass="active" Match="NavLinkMatch.All">
+                        <h4 class="card-title">Rilevazioni</h4>
+                    </NavLink>
+                    <p class="card-text text-center">Un elenco dei dati rilevati dalla stazione meteo.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <NavLink class="nav-link text-center" href="/sensori" ActiveClass="active" Match="NavLinkMatch.All">
+                        <h4 class="card-title">Sensori</h4>
+                    </NavLink>
+                    <p class="card-text text-center">Un elenco dei sensori presenti nella stazione meteo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <NavLink class="nav-link text-center" href="/GrandezzaFisica" ActiveClass="active" Match="NavLinkMatch.All">
+                        <h4 class="card-title">Grandezze Fisiche</h4>
+                    </NavLink>
+                    <p class="card-text text-center">Un elenco delle grandezze fisiche rilevabili dai sensori.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <NavLink class="nav-link text-center" href="/SensoriInstallati" ActiveClass="active" Match="NavLinkMatch.All">
+                        <h4 class="card-title">Sensori Installati</h4>
+                    </NavLink>
+                    <p class="card-text text-center">Un riepilogo sei sensori installati nelle rispettive stazioni.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <NavLink class="nav-link text-center" href="/Stazioni" ActiveClass="active" Match="NavLinkMatch.All">
+                        <h4 class="card-title">Stazioni</h4>
+                    </NavLink>
+                    <p class="card-text text-center">Un elenco delle stazioni presenti nel territorio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

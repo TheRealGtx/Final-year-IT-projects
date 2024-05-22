@@ -1,0 +1,41 @@
+﻿@page "/Rilevazioni"
+@inject RilevazioniQuery rilevazioniQuery
+
+<div class="card">
+    <h1 class="card-title text-center">Rilevazioni</h1>
+    <div class="card-body">
+        <p class="card-text">
+            <div id="tabella">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sensore</th>
+                            <th scope="col">Data e Ora</th>
+                            <th scope="col">Dato rilevato</th>
+                            <th scope="col">Operazioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var rilevazione in rilevazioniQuery.OttieneRilevazioni())
+                        {
+                            <tr>
+                                <td>@rilevazione.Sensore</td>
+                                <td>@rilevazione.Data</td>
+                                <td>@rilevazione.Rilevamento</td>
+
+                                <td>
+                                    <NavLink href=@Url("rilevazioni", "dettagli", rilevazione.Id.ToString())>Dettagli</NavLink>
+                                    <NavLink href=@Url("rilevazioni", "modifica", rilevazione.Id.ToString())>Modifica</NavLink>
+                                    <NavLink href=@Url("rilevazioni", "elimina", rilevazione.Id.ToString())>Elimina</NavLink>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row text-center">
+    <a class="btn btn-primary" href='@Url("rilevazioni", "crea")' role="button">Nuova rilevazione</a>
+</div>

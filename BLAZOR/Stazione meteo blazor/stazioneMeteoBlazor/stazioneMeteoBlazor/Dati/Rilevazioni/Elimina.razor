@@ -1,0 +1,33 @@
+﻿@page "/rilevazioni/elimina/{id}"
+@using stazioneMeteoBlazor.Pages
+@using System.ComponentModel.DataAnnotations
+@inject RilevazioniQuery rilevazioniQuery
+@inject NavigationManager NavigationManager
+@using stazioneMeteoBlazor.AltriComponenti
+
+<h2>Elimina rilevazioni</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Sensore</dt>
+    <dd class="col-sm-10">@_rilevazione.Sensore</dd>
+    <dt class="col-sm-2">Data</dt>
+    <dd class="col-sm-10">@_rilevazione.Data</dd>
+    <dt class="col-sm-2">Dato rilevato</dt>
+    <dd class="col-sm-10">@_rilevazione.Rilevamento</dd>
+</dl>
+
+<button class="btn btn-danger" @onclick="EliminaRecord">Elimina</button>
+<br />
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Elimina" Tabella="Rilevazioni" />
+}
+
+<a class="btn btn-primary" href="/rilevazioni" role="button">Torna alle rilevazioni</a>
+
+@code
+{
+    [Parameter]
+    public string id { get; set; }
+}

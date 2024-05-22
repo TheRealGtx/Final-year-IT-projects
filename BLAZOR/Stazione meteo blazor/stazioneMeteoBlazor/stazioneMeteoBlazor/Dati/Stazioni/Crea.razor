@@ -1,0 +1,69 @@
+﻿@page "/Stazioni/crea"
+@using System.ComponentModel.DataAnnotations
+@using stazioneMeteoBlazor.AltriComponenti
+@inject StazioniQuery stazioniQuery
+@using System
+
+<h2>Inserimento Stazioni</h2>
+
+<Microsoft.AspNetCore.Components.Forms.EditForm Model="_stazione" OnValidSubmit="Submit">
+    <Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator />
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary />
+    <label>
+        Nome:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_stazione.Id" />
+    </label>
+    <br />
+
+    <label>
+        Ip:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_stazione.Ip" />
+    </label>
+    <br />
+
+    <label>
+        Indirizzo:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_stazione.Indirizzo" />
+    </label>
+    <br />
+
+    <label>
+        Latitudine:
+        <Microsoft.AspNetCore.Components.Forms.InputNumber @bind-Value="_stazione.Latitudine" max="99" step=".000001" />
+    </label>
+    <br />
+
+    <label>
+        Longitudine:
+        <Microsoft.AspNetCore.Components.Forms.InputNumber @bind-Value="_stazione.Longitudine" max="99" step=".000001" />
+    </label>
+    <br />
+
+    <label>
+        Altitudine:
+        <Microsoft.AspNetCore.Components.Forms.InputNumber @bind-Value="_stazione.Altitudine" />
+    </label>
+    <br />
+
+    <label>
+        Descrizione:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_stazione!.Descrizione" />
+    </label>
+    <br />
+
+    <label>
+        Note:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_stazione!.Note" />
+    </label>
+    <br />
+
+    <button class="btn btn-success" type="submit">Inserisci</button>
+    <br />
+</Microsoft.AspNetCore.Components.Forms.EditForm>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Crea" Tabella="Stazioni" />
+}
+
+<a class="btn btn-primary" href="/Stazioni" role="button">Torna alle stazioni</a>

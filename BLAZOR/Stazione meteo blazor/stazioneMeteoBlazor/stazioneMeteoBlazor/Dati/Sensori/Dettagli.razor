@@ -1,0 +1,41 @@
+﻿@page "/sensori/dettagli/{id}"
+@using stazioneMeteoBlazor.Pages
+@inject SensoriQuery sensoriQuery
+
+<h2>Dettagli del sensore selezionato</h2>
+
+@{
+    Sensori sensore = sensoriQuery.ottieneSensoriById(Id);
+    if (sensore.camera == 1)
+    {
+        camera = "Presente";
+    }
+    else
+    {
+        camera = "Assente";
+    }
+
+    <dl class="row">
+        <dt class="col-sm-2">Grandezza fisica:</dt>
+        <dd class="col-sm-10">@sensore.grandezzaFisica</dd>
+        <dt class="col-sm-2">Camera:</dt>
+        <dd class="col-sm-10">@camera</dd>
+        <dt class="col-sm-2">Nome:</dt>
+        <dd class="col-sm-10">@sensore.Nome</dd>
+        <dt class="col-sm-2">Tipo:</dt>
+        <dd class="col-sm-10">@sensore.Tipo</dd>
+        <dt class="col-sm-2">Caratteristiche:</dt>
+        <dd class="col-sm-10">@sensore.caratteristiche</dd>
+        <dt class="col-sm-2">Note:</dt>
+        <dd class="col-sm-10">@sensore.note</dd>
+    </dl>
+}
+
+<a class="btn btn-primary" href="/sensori" role="button">Torna ai sensori</a>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    public string camera;
+}

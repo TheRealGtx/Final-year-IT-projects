@@ -1,0 +1,51 @@
+﻿@page "/GrandezzaFisica/modifica/{id}"
+@inject GrandezzaFisicaQuery grandezzaFisicaQuery
+@using System.ComponentModel.DataAnnotations
+@using stazioneMeteoBlazor.Pages
+@using stazioneMeteoBlazor.AltriComponenti
+
+<h2>Modifica Sensore</h2>
+
+<Microsoft.AspNetCore.Components.Forms.EditForm Model="_grandezza" OnValidSubmit="Submit">
+    <Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator/>
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary/>
+    <label>
+        Grandezza fisica:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_grandezza!.grandezzaFisica" />
+    </label>
+    <br />
+
+    <label>
+        Simbolo:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_grandezza!.simbolo" />
+    </label>
+    <br />
+
+    <label>
+        Simbolo adottato:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_grandezza!.simboloAdottato" />
+    </label>
+    <br />
+
+    <label>
+        Note:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_grandezza!.note" />
+    </label>
+    <br />
+
+    <button class="btn btn-success" type="submit">Salva</button>
+    <br />
+
+    <a class="btn btn-primary" href="/GrandezzaFisica" role="button">Torna alle grandezze</a>
+</Microsoft.AspNetCore.Components.Forms.EditForm>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Modifica" Tabella="GrandezzaFisica" />
+}
+
+@code
+{
+    [Parameter]
+    public string? id { get; set; }
+}

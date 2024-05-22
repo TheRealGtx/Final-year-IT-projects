@@ -1,0 +1,48 @@
+﻿@page "/rilevazioni/modifica/{id}"
+@inject RilevazioniQuery rilevazioniQuery
+@using System.ComponentModel.DataAnnotations
+@using stazioneMeteoBlazor.Pages
+@using stazioneMeteoBlazor.AltriComponenti
+
+<h2>Modifica Rilevazione</h2>
+
+<Microsoft.AspNetCore.Components.Forms.EditForm Model="_rilevazione" OnValidSubmit="Submit">
+    <Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator/>
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary/>
+    <label>
+        Sensore:
+        <select class="form-control" @bind="_rilevazione!.Sensore">
+            @foreach (string sensore in rilevazioniQuery.OttieneSensori())
+            {
+                <option value="@sensore">@sensore</option>
+            }
+        </select>
+    </label>
+    <br />
+    <label>
+        Data:
+        <Microsoft.AspNetCore.Components.Forms.InputDate @bind-Value="_rilevazione!.Data" @bind-Value:format="dd-MM-yyyy"/>
+    </label>
+    <br />
+    <label>
+        Dato rilevato:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_rilevazione!.Rilevamento" />
+    </label>
+    <br />
+
+    <button class="btn btn-success" type="submit">Salva</button>
+    <br />
+
+    <a class="btn btn-primary" href="/rilevazioni" role="button">Torna alle rilevazioni</a>
+</Microsoft.AspNetCore.Components.Forms.EditForm>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Modifica" Tabella="Rilevazioni" />
+}
+
+@code
+{
+    [Parameter]
+    public string? id { get; set; }
+}

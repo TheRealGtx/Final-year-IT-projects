@@ -1,0 +1,35 @@
+﻿@page "/Stazioni/dettagli/{id}"
+@using stazioneMeteoBlazor.Pages
+@inject StazioniQuery stazioniQuery
+
+<h2>Dettagli della stazione selezionata</h2>
+
+@{
+    Stazioni stazione = stazioniQuery.ottieneStazioniById(Id);
+
+    <dl class="row">
+        <dt class="col-sm-2">Nome:</dt>
+        <dd class="col-sm-10">@stazione.Id</dd>
+        <dt class="col-sm-2">Ip Statico:</dt>
+        <dd class="col-sm-10">@stazione.Ip</dd>
+        <dt class="col-sm-2">Indirizzo:</dt>
+        <dd class="col-sm-10">@stazione.Indirizzo</dd>
+        <dt class="col-sm-2">Latitudine:</dt>
+        <dd class="col-sm-10">@stazione.Latitudine</dd>
+        <dt class="col-sm-2">Longitudine:</dt>
+        <dd class="col-sm-10">@stazione.Longitudine</dd>
+        <dt class="col-sm-2">Altitudine:</dt>
+        <dd class="col-sm-10">@stazione.Altitudine</dd>
+        <dt class="col-sm-2">Descrizione:</dt>
+        <dd class="col-sm-10">@stazione.Descrizione</dd>
+        <dt class="col-sm-2">Note:</dt>
+        <dd class="col-sm-10">@stazione.Note</dd>
+    </dl>
+}
+
+<a class="btn btn-primary" href="/Stazioni" role="button">Torna alle stazioni</a>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+}

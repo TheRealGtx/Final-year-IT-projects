@@ -1,0 +1,55 @@
+﻿@page "/SensoriInstallati/modifica/{id}"
+@inject SensoriInstallatiQuery sensoriInstallatiQuery
+@using System.ComponentModel.DataAnnotations
+@using stazioneMeteoBlazor.Pages
+@using stazioneMeteoBlazor.AltriComponenti
+
+<h2>Modifica installazione</h2>
+
+<Microsoft.AspNetCore.Components.Forms.EditForm Model="_installazione" OnValidSubmit="Submit">
+    <Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator />
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary />
+    <label>
+        Sensore:
+        <select class="form-control" @bind="_installazione!.Sensore">
+            @foreach (string sensore in sensoriInstallatiQuery.OttieneSensori())
+            {
+                <option value="@sensore">@sensore</option>
+            }
+        </select>
+    </label>
+    <br />
+
+    <label>
+        Stazione:
+        <select class="form-control" @bind="_installazione!.Stazione">
+            @foreach (string stazione in sensoriInstallatiQuery.ottieneStazioni())
+            {
+                <option value="@stazione">@stazione</option>
+            }
+        </select>
+    </label>
+    <br />
+
+    <label>
+        Note:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_installazione!.Note" />
+    </label>
+    <br />
+
+    <button class="btn btn-success" type="submit">Salva</button>
+    <br />
+
+    <a class="btn btn-primary" href="/SensoriInstallati" role="button">Torna alle installazioni</a>
+</Microsoft.AspNetCore.Components.Forms.EditForm>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Modifica" Tabella="SensoriInstallati" />
+}
+
+@code
+{
+    [Parameter]
+    public string? id { get; set; }
+}

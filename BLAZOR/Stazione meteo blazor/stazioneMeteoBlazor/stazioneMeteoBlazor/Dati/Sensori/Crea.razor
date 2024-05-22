@@ -1,0 +1,67 @@
+﻿@page "/sensori/crea"
+@using System.ComponentModel.DataAnnotations
+@inject SensoriQuery sensoriQuery
+@using System
+@using stazioneMeteoBlazor.AltriComponenti
+
+<h2>Inserimento Sensori</h2>
+
+<Microsoft.AspNetCore.Components.Forms.EditForm Model="_sensore" OnValidSubmit="Submit">
+    <Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator />
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary />
+    <label>
+        Grandezza fisica:
+        <select class="form-control" @bind="_sensore!.grandezzaFisica">
+            @foreach (string grandezza in sensoriQuery.OttieniGrandezzeFisiche())
+            {
+                <option value="@grandezza">@grandezza</option>
+            }
+        </select>
+    </label>
+    <br />
+
+    <label>
+        Camera:
+        <Microsoft.AspNetCore.Components.Forms.InputCheckbox @bind-Value="scelta" />
+    </label>
+    <br />
+
+    <label>
+        Nome:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_sensore!.Nome" />
+    </label>
+    <br />
+
+    <label>
+        Tipo:
+        <select class="form-control" @bind="_sensore!.Tipo">
+            @foreach (string tipo in sensoriQuery.OttieneTipoSensore())
+            {
+                <option value="@tipo">@tipo</option>
+            }
+        </select>
+    </label>
+    <br />
+
+    <label>
+        Caratteristiche:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_sensore!.caratteristiche" />
+    </label>
+    <br />
+
+    <label>
+        Note:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_sensore!.note" />
+    </label>
+    <br />
+
+    <button class="btn btn-success" type="submit">Inserisci</button>
+</Microsoft.AspNetCore.Components.Forms.EditForm>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Crea" Tabella="Sensori" />
+}
+
+<br />
+<a class="btn btn-primary" href="/sensori" role="button">Torna ai sensori</a>

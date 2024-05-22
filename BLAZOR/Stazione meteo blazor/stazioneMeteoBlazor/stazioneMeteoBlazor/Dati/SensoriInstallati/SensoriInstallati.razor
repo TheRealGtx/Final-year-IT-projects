@@ -1,0 +1,39 @@
+﻿@page "/SensoriInstallati"
+@inject SensoriInstallatiQuery sensoriInstallatiQuery
+
+<div class="card">
+    <h1 class="card-title text-center">Sensori installati</h1>
+    <div class="card-body">
+        <p class="card-text">
+            <div id="tabella">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Codice sensore</th>
+                            <th scope="col">Stazione</th>
+                            <th scope="col">Operazioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var sensoreInstallato in sensoriInstallatiQuery.OttieneInstallazioni())
+                        {
+                            <tr>
+                                <td>@sensoreInstallato.Sensore</td>
+                                <td>@sensoreInstallato.Stazione</td>
+
+                                <td>
+                                    <NavLink href=@Url("SensoriInstallati", "dettagli", sensoreInstallato.Id.ToString())>Dettagli</NavLink>
+                                    <NavLink href=@Url("SensoriInstallati", "modifica", sensoreInstallato.Id.ToString())>Modifica</NavLink>
+                                    <NavLink href=@Url("SensoriInstallati", "elimina", sensoreInstallato.Id.ToString())>Elimina</NavLink>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row text-center">
+    <a class="btn btn-primary" href='@Url("SensoriInstallati", "crea")' role="button">Nuova installazione</a>
+</div>

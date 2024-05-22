@@ -1,0 +1,44 @@
+﻿@page "/rilevazioni/crea"
+@using System.ComponentModel.DataAnnotations
+@using stazioneMeteoBlazor.AltriComponenti
+@inject RilevazioniQuery rilevazioniQuery
+@using System
+
+<h2>Inserimento Rilevazioni</h2>
+
+<Microsoft.AspNetCore.Components.Forms.EditForm Model="_rilevazione" OnValidSubmit="Submit">
+    <Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator/>
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary/>
+    <label>
+        Sensore:
+        <select class="form-control" @bind="_rilevazione!.Sensore">
+            @foreach (string sensore in rilevazioniQuery.OttieneSensori())
+            {
+                <option value="@sensore">@sensore</option>
+            }
+        </select>
+    </label>
+    <br />
+
+    <label>
+    Data:
+        <Microsoft.AspNetCore.Components.Forms.InputDate @bind-Value="_rilevazione!.Data" />
+    </label>
+    <br />
+    
+    <label>
+    Dato rilevato:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_rilevazione!.Rilevamento" />
+    </label>
+    <br />
+
+    <button class="btn btn-success" type="submit">Inserisci</button>
+    <br />
+</Microsoft.AspNetCore.Components.Forms.EditForm>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Crea" Tabella="Rilevazioni" />
+}
+
+<a class="btn btn-primary" href="/rilevazioni" role="button">Torna alle rilevazioni</a>

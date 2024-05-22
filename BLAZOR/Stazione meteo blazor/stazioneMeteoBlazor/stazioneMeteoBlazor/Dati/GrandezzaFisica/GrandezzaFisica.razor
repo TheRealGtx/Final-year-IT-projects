@@ -1,0 +1,39 @@
+﻿@page "/GrandezzaFisica"
+@inject GrandezzaFisicaQuery grandezzaFisicaQuery
+
+<div class="card">
+    <h1 class="card-title text-center">Grandezze fisiche</h1>
+    <div class="card-body">
+        <p class="card-text">
+            <div id="tabella">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Grandezza</th>
+                            <th scope="col">Simbolo</th>
+                            <th scope="col">Operazioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var grandezza in grandezzaFisicaQuery.OttieneGrandezzaFisica())
+                        {
+                            <tr>
+                                <td>@grandezza.grandezzaFisica</td>
+                                <td>@grandezza.simboloAdottato</td>
+
+                                <td>
+                                    <NavLink href=@Url("GrandezzaFisica", "dettagli", grandezza.Id.ToString())>Dettagli</NavLink>
+                                    <NavLink href=@Url("GrandezzaFisica", "modifica", grandezza.Id.ToString())>Modifica</NavLink>
+                                    <NavLink href=@Url("GrandezzaFisica", "elimina", grandezza.Id.ToString())>Elimina</NavLink>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row text-center">
+    <a class="btn btn-primary" href='@Url("GrandezzaFisica", "crea")' role="button">Nuova grandezza</a>
+</div>

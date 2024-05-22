@@ -1,0 +1,25 @@
+﻿@page "/SensoriInstallati/dettagli/{id}"
+@using stazioneMeteoBlazor.Pages
+@inject SensoriInstallatiQuery sensoriInstallatiQuery
+
+<h2>Dettagli dell'installazione selezionata</h2>
+
+@{
+    SensoriInstallati installazione = sensoriInstallatiQuery.ottieneInstallazioniById(Id);
+
+    <dl class="row">
+        <dt class="col-sm-2">Sensore:</dt>
+        <dd class="col-sm-10">@installazione.Sensore</dd>
+        <dt class="col-sm-2">Stazione:</dt>
+        <dd class="col-sm-10">@installazione.Stazione</dd>
+        <dt class="col-sm-2">note:</dt>
+        <dd class="col-sm-10">@installazione.Note</dd>
+    </dl>
+}
+
+<a class="btn btn-primary" href="/SensoriInstallati" role="button">Torna alle installazioni</a>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+}

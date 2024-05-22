@@ -1,0 +1,53 @@
+﻿@using stazioneMeteoBlazor.Pages
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href=""><img src="images/logo.png" width="75"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">     
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/" ActiveClass="active" Match="NavLinkMatch.All">
+                        <span class="bi bi-house">Home</span>
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/SistemaMetereologico" ActiveClass="active" Match="NavLinkMatch.All">
+                        <span>Sistema metereologico</span>
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/dati" ActiveClass="active" Match="NavLinkMatch.All">
+                        <span>Dati disponibili</span>
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/ChiSiamo" ActiveClass="active" Match="NavLinkMatch.All">
+                        <span>Chi siamo</span>
+                    </NavLink>
+                </li>
+                <Dropdown>
+                    <DropdownToggleButton Color="ButtonColor.Primary">Componenti</DropdownToggleButton>
+                    <DropdownMenu>
+                        <DropdownItem To="/ComponentiElettronici" Type="ButtonType.Link">Componenti elettronici</DropdownItem>
+                        <DropdownItem To="/Raspberry" Type="ButtonType.Link">Raspberry</DropdownItem>
+                        <DropdownItem To="/Ups" Type="ButtonType.Link">Ups</DropdownItem>
+                        <DropdownItem To="/BatteriaUps" Type="ButtonType.Link">Batteria Ups</DropdownItem>
+                        <DropdownItem To="/Stabilizzatori" Type="ButtonType.Link">Stabilizzatori</DropdownItem>
+                        <DropdownItem To="/StabilizzatoreDiTensione" Type="ButtonType.Link">Stabilizzatore di tensione</DropdownItem>
+                        <DropdownItem To="/Encoder" Type="ButtonType.Link">Encoder</DropdownItem>
+                        <DropdownItem To="/EncoderAssoluto" Type="ButtonType.Link">Encoder Assoluto</DropdownItem>
+                        <DropdownItem To="/EncoderIncrementale" Type="ButtonType.Link">Encoder Incrementale</DropdownItem>
+                        <DropdownItem To="/Webcam" Type="ButtonType.Link">Webcam</DropdownItem>
+                        <DropdownItem To="/Pluviometro" Type="ButtonType.Link">Pluviometro</DropdownItem>
+                        <DropdownItem To="/ProtezioneSensori" Type="ButtonType.Link">Protezione sensori</DropdownItem>
+                        <DropdownItem To="/Banderuola" Type="ButtonType.Link">Banderuola</DropdownItem>
+                        <DropdownItem To="/Anemometro" Type="ButtonType.Link">Anemometro</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+            </ul>
+        </div>
+    </div>
+</nav>

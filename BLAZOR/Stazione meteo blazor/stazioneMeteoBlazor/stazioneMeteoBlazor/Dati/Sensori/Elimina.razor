@@ -1,0 +1,31 @@
+﻿@page "/sensori/elimina/{id}"
+@using stazioneMeteoBlazor.Pages
+@using System.ComponentModel.DataAnnotations
+@inject SensoriQuery sensoriQuery
+@inject NavigationManager NavigationManager
+@using stazioneMeteoBlazor.AltriComponenti
+
+<h2>Elimina rilevazioni</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Nome</dt>
+    <dd class="col-sm-10">@_sensore.Nome</dd>
+    <dt class="col-sm-2">Tipo</dt>
+    <dd class="col-sm-10">@_sensore.Tipo</dd>
+</dl>
+
+<button class="btn btn-danger" @onclick="EliminaRecord">Elimina</button>
+<br />
+
+<a class="btn btn-primary" href="/sensori" role="button">Torna ai sensori</a>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Elimina" Tabella="Sensori" />
+}
+
+@code
+{
+    [Parameter]
+    public string id { get; set; }
+}

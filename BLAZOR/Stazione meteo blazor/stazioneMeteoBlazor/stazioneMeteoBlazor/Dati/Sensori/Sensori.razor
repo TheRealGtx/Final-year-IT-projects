@@ -1,0 +1,41 @@
+﻿@page "/Sensori"
+@inject SensoriQuery sensoriQuery
+
+<div class="card">
+    <h1 class="card-title text-center">Sensori</h1>
+    <div class="card-body">
+        <p class="card-text">
+            <div id="tabella">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Caratteristiche</th>
+                            <th scope="col">Operazioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var sensore in sensoriQuery.OttieneSensori())
+                        {
+                            <tr>
+                                <td>@sensore.Nome</td>
+                                <td>@sensore.Tipo</td>
+                                <td>@sensore.caratteristiche</td>
+
+                                <td>
+                                    <NavLink href=@Url("sensori", "dettagli", sensore.Id.ToString())>Dettagli</NavLink>
+                                    <NavLink href=@Url("sensori", "modifica", sensore.Id.ToString())>Modifica</NavLink>
+                                    <NavLink href=@Url("sensori", "elimina", sensore.Id.ToString())>Elimina</NavLink>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row text-center">
+    <a class="btn btn-primary" href='@Url("sensori", "crea")' role="button">Nuovo sensore</a>
+</div>

@@ -1,0 +1,41 @@
+﻿@page "/Stazioni"
+@inject StazioniQuery stazioniQuery
+
+<div class="card">
+    <h1 class="card-title text-center">Stazioni</h1>
+    <div class="card-body">
+        <p class="card-text">
+            <div id="tabella">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">IP Statico</th>
+                            <th scope="col">Descrizione</th>
+                            <th scope="col">Operazioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var stazione in stazioniQuery.OttieneStazioni())
+                        {
+                            <tr>
+                                <td>@stazione.Id</td>
+                                <td>@stazione.Ip</td>
+                                <td>@stazione.Descrizione</td>
+
+                                <td>
+                                    <NavLink href=@Url("Stazioni", "dettagli", stazione.Id.ToString())>Dettagli</NavLink>
+                                    <NavLink href=@Url("Stazioni", "modifica", stazione.Id.ToString())>Modifica</NavLink>
+                                    <NavLink href=@Url("Stazioni", "elimina", stazione.Id.ToString())>Elimina</NavLink>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row text-center">
+    <a class="btn btn-primary" href='@Url("Stazioni", "crea")' role="button">Nuova stazione</a>
+</div>

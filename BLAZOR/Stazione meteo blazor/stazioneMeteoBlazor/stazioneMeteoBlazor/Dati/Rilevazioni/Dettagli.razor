@@ -1,0 +1,25 @@
+﻿@page "/rilevazioni/dettagli/{id}"
+@using stazioneMeteoBlazor.Pages
+@inject RilevazioniQuery rilevazioniQuery
+
+<h2>Dettagli della rilevazione selezionata</h2>
+
+@{
+    Rilevazione rilevazione = rilevazioniQuery.ottieneRilevazioniById(Id);
+
+    <dl class="row">
+        <dt class="col-sm-2">Sensore:</dt>
+        <dd class="col-sm-10">@rilevazione.Sensore</dd>
+        <dt class="col-sm-2">Data e ora:</dt>
+        <dd class="col-sm-10">@rilevazione.Data</dd>
+        <dt class="col-sm-2">Rilevamento:</dt>
+        <dd class="col-sm-10">@rilevazione.Rilevamento</dd>
+    </dl>
+}
+
+<a class="btn btn-primary" href="/rilevazioni" role="button">Torna alle rilevazioni</a>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+}

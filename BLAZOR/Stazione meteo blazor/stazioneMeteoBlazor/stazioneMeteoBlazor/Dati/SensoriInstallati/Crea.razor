@@ -1,0 +1,46 @@
+﻿@page "/SensoriInstallati/crea"
+@using System.ComponentModel.DataAnnotations
+@using stazioneMeteoBlazor.AltriComponenti
+@inject SensoriInstallatiQuery sensoriInstallatiQuery
+@using System
+
+<h2>Inserimento Installazioni</h2>
+
+<Microsoft.AspNetCore.Components.Forms.EditForm Model="_installazione" OnValidSubmit="Submit">
+    <Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator />
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary />
+    <label>
+        Sensore:
+        <select class="form-control" @bind="_installazione!.Sensore">
+            @foreach (string sensore in sensoriInstallatiQuery.OttieneSensori())
+            {
+                <option value="@sensore">@sensore</option>
+            }
+        </select>
+    </label>
+    <br />
+
+    Stazione:
+    <select class="form-control" @bind="_installazione!.Stazione">
+        @foreach (string stazione in sensoriInstallatiQuery.ottieneStazioni())
+        {
+            <option value="@stazione">@stazione</option>
+        }
+    </select>
+
+    <label>
+        Note:
+        <Microsoft.AspNetCore.Components.Forms.InputText @bind-Value="_installazione!.Note" />
+    </label>
+    <br />
+
+    <button class="btn btn-success" type="submit">Inserisci</button>
+    <br />
+</Microsoft.AspNetCore.Components.Forms.EditForm>
+
+@if (finestra)
+{
+    <FinestraDati Titolo="Crea" Tabella="SensoriInstallati" />
+}
+
+<a class="btn btn-primary" href="/SensoriInstallati" role="button">Torna alle installazioni</a>
