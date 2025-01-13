@@ -1,2 +1,2 @@
 # Final-year-IT-projects
-This are some of the projects i made during my final year of school (quinta superiore). They're divided in C#, Python, T-Sql, and Blazor.\
+This are some of the projects i made during my final year of school (quinta superiore). They're divided in C#, Python, T-Sql, and Blazor.
